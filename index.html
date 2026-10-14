@@ -1217,30 +1217,3 @@
     </script>
 </body>
 </html>
- + amount.toFixed(2) + ' CAD for ' + fund + '. Donor email: ' + email + '. Secure online payment is not connected yet, so no donation has been charged or submitted. Please use the church’s listed e-Transfer instructions if you wish to give now.';
-            confirmation.append(heading, message);
-            confirmation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-
-        function handlePrayerSubmit(event) {
-            event.preventDefault();
-            alert('Your prayer request has been received confidentially. Our intercessory team will join you in prayer.');
-            event.target.reset();
-        }
-
-        function handleLogoUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const logoDisplays = document.querySelectorAll('.custom-logo-display');
-                    logoDisplays.forEach(container => {
-                        container.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-contain rounded-xl">`;
-                    });
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
-</body>
-</html>
