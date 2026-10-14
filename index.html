@@ -1168,23 +1168,32 @@
             event.preventDefault();
             const form = document.getElementById('donorGivingForm');
             if (!form || !form.reportValidity()) return;
+
             const name = document.getElementById('donorFullName').value.trim();
             const email = document.getElementById('donorEmail').value.trim();
             const fund = document.getElementById('givingFund').value;
             const amount = Number(document.getElementById('customAmount').value);
+
             if (!name || !email || !Number.isFinite(amount) || amount <= 0) {
                 form.reportValidity();
                 return;
             }
+
             const confirmation = document.getElementById('givingConfirmation');
             confirmation.classList.remove('hidden');
-            confirmation.innerHTML = '';
+            confirmation.replaceChildren();
+
             const heading = document.createElement('h4');
             heading.className = 'font-bold text-white';
             heading.textContent = 'Thank you, ' + name + '!';
+
             const message = document.createElement('p');
             message.className = 'text-sm text-slate-300 mt-2';
-            message.textContent = 'Your giving details are ready: 
+            message.textContent = 'Your giving details are ready: $' + amount.toFixed(2) + ' CAD for ' + fund + '. Donor email: ' + email + '. Secure online payment is not connected yet, so no donation has been charged or submitted. Please use the church’s listed e-Transfer instructions if you wish to give now.';
+
+            confirmation.append(heading, message);
+            confirmation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
 
         function handlePrayerSubmit(event) {
             event.preventDefault();
