@@ -586,32 +586,40 @@
                             Online Tithes & Seed Offering
                         </h3>
 
-                        <div class="space-y-4">
+                        <form id="donorGivingForm" class="space-y-4" onsubmit="submitGiving(event)">
                             <div>
-                                <label class="block text-xs font-bold text-slate-300 mb-1">Select Fund Category:</label>
-                                <select class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue">
-                                    <option class="bg-brand-navy text-white">Tithes & Offerings</option>
-                                    <option class="bg-brand-navy text-white">Rehoboth Building Fund</option>
-                                    <option class="bg-brand-navy text-white">Global Missions</option>
-                                    <option class="bg-brand-navy text-white">Benevolence & Community Care</option>
+                                <label for="donorFullName" class="block text-xs font-bold text-slate-300 mb-1">Donor full name *</label>
+                                <input type="text" id="donorFullName" name="donorFullName" autocomplete="name" required maxlength="120" placeholder="Enter your full name" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
+                            </div>
+                            <div>
+                                <label for="donorEmail" class="block text-xs font-bold text-slate-300 mb-1">Email address *</label>
+                                <input type="email" id="donorEmail" name="donorEmail" autocomplete="email" required maxlength="254" placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
+                            </div>
+                            <div>
+                                <label for="givingFund" class="block text-xs font-bold text-slate-300 mb-1">Select fund category</label>
+                                <select id="givingFund" name="givingFund" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue">
+                                    <option class="bg-brand-navy text-white" value="Tithes & Offerings">Tithes & Offerings</option>
+                                    <option class="bg-brand-navy text-white" value="Rehoboth Building Fund">Rehoboth Building Fund</option>
+                                    <option class="bg-brand-navy text-white" value="Global Missions">Global Missions</option>
+                                    <option class="bg-brand-navy text-white" value="Benevolence & Community Care">Benevolence & Community Care</option>
                                 </select>
                             </div>
-
                             <div>
-                                <label class="block text-xs font-bold text-slate-300 mb-1">Amount ($ CAD):</label>
+                                <label class="block text-xs font-bold text-slate-300 mb-1">Amount ($ CAD) *</label>
                                 <div class="grid grid-cols-4 gap-2 mb-3">
-                                    <button onclick="setAmount(50)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$50</button>
-                                    <button onclick="setAmount(100)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$100</button>
-                                    <button onclick="setAmount(250)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$250</button>
-                                    <button onclick="setAmount(500)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$500</button>
+                                    <button type="button" onclick="setAmount(50)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$50</button>
+                                    <button type="button" onclick="setAmount(100)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$100</button>
+                                    <button type="button" onclick="setAmount(250)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$250</button>
+                                    <button type="button" onclick="setAmount(500)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$500</button>
                                 </div>
-                                <input type="number" id="customAmount" placeholder="Or enter custom amount" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue">
+                                <input type="number" id="customAmount" name="customAmount" min="1" max="100000" step="0.01" required placeholder="Or enter a custom amount" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
                             </div>
-
-                            <button onclick="submitGiving()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-crimson to-brand-flame hover:opacity-95 text-white font-bold text-sm shadow-xl transition-all">
-                                Proceed to Secure Giving
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-crimson to-brand-flame hover:opacity-95 text-white font-bold text-sm shadow-xl transition-all">
+                                Continue to Giving
                             </button>
-                        </div>
+                            <p class="text-xs text-slate-400 text-center">Your details are used to prepare your giving request. Online card payments are not enabled yet.</p>
+                        </form>
+                        <div id="givingConfirmation" class="hidden mt-5 p-4 rounded-xl border border-amber-300/30 bg-black/20" role="status" aria-live="polite"></div>
                     </div>
                 </div>
 
@@ -1156,9 +1164,53 @@
             document.getElementById('customAmount').value = val;
         }
 
-        function submitGiving() {
-            const amt = document.getElementById('customAmount').value || '50';
-            alert(`Thank you for your seed offering of $${amt}! Redirecting to secure processing or e-Transfer instructions.`);
+        function submitGiving(event) {
+            event.preventDefault();
+            const form = document.getElementById('donorGivingForm');
+            if (!form || !form.reportValidity()) return;
+            const name = document.getElementById('donorFullName').value.trim();
+            const email = document.getElementById('donorEmail').value.trim();
+            const fund = document.getElementById('givingFund').value;
+            const amount = Number(document.getElementById('customAmount').value);
+            if (!name || !email || !Number.isFinite(amount) || amount <= 0) {
+                form.reportValidity();
+                return;
+            }
+            const confirmation = document.getElementById('givingConfirmation');
+            confirmation.classList.remove('hidden');
+            confirmation.innerHTML = '';
+            const heading = document.createElement('h4');
+            heading.className = 'font-bold text-white';
+            heading.textContent = 'Thank you, ' + name + '!';
+            const message = document.createElement('p');
+            message.className = 'text-sm text-slate-300 mt-2';
+            message.textContent = 'Your giving details are ready: 
+
+        function handlePrayerSubmit(event) {
+            event.preventDefault();
+            alert('Your prayer request has been received confidentially. Our intercessory team will join you in prayer.');
+            event.target.reset();
+        }
+
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const logoDisplays = document.querySelectorAll('.custom-logo-display');
+                    logoDisplays.forEach(container => {
+                        container.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-contain rounded-xl">`;
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
+ + amount.toFixed(2) + ' CAD for ' + fund + '. Donor email: ' + email + '. Secure online payment is not connected yet, so no donation has been charged or submitted. Please use the church’s listed e-Transfer instructions if you wish to give now.';
+            confirmation.append(heading, message);
+            confirmation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         function handlePrayerSubmit(event) {
