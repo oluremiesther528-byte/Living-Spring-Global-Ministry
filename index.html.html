@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Spring Global Ministries — Rehoboth Chapel</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#1E65B0',      /* Globe Blue */
+                            navy: '#0F2238',      /* Deep Navy Base */
+                            darkNavy: '#08121F',  /* Dark Background */
+                            crimson: '#E52928',   /* Rehoboth Red */
+                            flame: '#FF4D00',     /* Top Flame Orange */
+                            gold: '#F59E0B',      /* Accents */
+                            lightBg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cinzel"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        .animate-flame {
+            animation: pulseGlow 2.5s ease-in-out infinite;
+        }
+
+        .glass-card {
+            background: rgba(15, 34, 56, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-light {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08121F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E65B0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-brand-darkNavy text-slate-100 font-sans antialiased selection:bg-brand-crimson selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-navy via-brand-crimson to-brand-navy border-b border-white/10 py-2.5 px-4 text-xs sm:text-sm font-medium text-center text-white flex justify-center items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/20 text-white">
+            📍 Brandon, MB
+        </span>
+        <span>Welcome to <strong>Living Spring Global Ministries — Rehoboth Chapel</strong>! Join us Sunday @ 7:00 AM.</span>
+        <a href="#contact-map" class="underline hover:text-amber-300 transition-colors ml-1 font-bold hidden sm:inline">View Map &rarr;</a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-brand-navy/90 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 sm:h-24">
+                
+                <!-- Brand Logo & Name -->
+                <a href="#" class="flex items-center gap-3 sm:gap-4 group">
+                    <div class="relative w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 p-1.5 shadow-lg group-hover:border-brand-blue transition-colors">
+                        <div class="custom-logo-display w-full h-full flex items-center justify-center">
+                            <svg class="w-full h-full" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M80 5 C80 5, 87 22, 80 32 C75 22, 68 18, 80 5 Z" fill="url(#flameGradNav)"/>
+                                <path d="M80 8 C80 8, 84 20, 80 28 C77 20, 72 16, 80 8 Z" fill="#FFC107"/>
+                                <path d="M30 75 C30 38 52 28 80 28 C108 28 130 38 130 75 C115 78 45 78 30 75 Z" stroke="#1E65B0" stroke-width="3.5" fill="none"/>
+                                <path d="M42 48 C52 42 108 42 118 48" stroke="#1E65B0" stroke-width="2" fill="none"/>
+                                <path d="M34 62 C48 58 112 58 126 62" stroke="#1E65B0" stroke-width="2" fill="none"/>
+                                <path d="M58 32 C50 50 50 68 58 76" stroke="#1E65B0" stroke-width="2" fill="none"/>
+                                <path d="M102 32 C110 50 110 68 102 76" stroke="#1E65B0" stroke-width="2" fill="none"/>
+                                <path d="M80 28 L80 77" stroke="#1E65B0" stroke-width="2.5" fill="none"/>
+                                <path d="M80 32 L80 76 M66 48 L94 48" stroke="#0F2238" stroke-width="4.5" stroke-linecap="round"/>
+                                <path d="M80 32 L80 76 M66 48 L94 48" stroke="#1E65B0" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M72 48 C76 44 84 44 88 48 C84 54 76 54 72 48 Z" fill="#FFFFFF"/>
+                                <path d="M22 78 Q80 85 80 95 Q80 85 138 78 L146 88 Q80 96 80 106 Q80 96 14 88 Z" fill="#0F2238" stroke="#1E65B0" stroke-width="2"/>
+                                <path d="M22 78 Q80 88 138 78 L134 82 Q80 92 26 82 Z" fill="#FFFFFF"/>
+                                <defs>
+                                    <linearGradient id="flameGradNav" x1="80" y1="5" x2="80" y2="32" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF4D00"/>
+                                        <stop offset="1" stop-color="#E52928"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <span class="font-serif font-black text-lg sm:text-2xl text-white tracking-wide uppercase leading-none group-hover:text-brand-blue transition-colors">
+                            LIVING SPRING
+                        </span>
+                        <span class="text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-widest leading-snug mt-0.5">
+                            GLOBAL MINISTRIES
+                        </span>
+                        <span class="text-[10px] sm:text-[11px] font-extrabold text-brand-crimson tracking-widest uppercase">
+                            REHOBOTH CHAPEL
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-200">
+                    <a href="#about" class="hover:text-amber-400 transition-colors">About Ministry</a>
+                    <a href="#founder" class="hover:text-amber-400 transition-colors">Our Founder</a>
+                    <a href="#schedule" class="hover:text-amber-400 transition-colors">Service Times</a>
+                    <a href="#contact-map" class="hover:text-amber-400 transition-colors">Map & Location</a>
+                    <a href="#attendance-gallery" class="hover:text-amber-400 transition-colors">Sunday Attendance</a>
+                    <a href="#giving" class="hover:text-amber-400 transition-colors">Partner & Give</a>
+                    <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+                </div>
+
+                <!-- Right Action Buttons -->
+                <div class="flex items-center gap-3">
+                    <label class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white text-xs font-bold cursor-pointer transition-colors" title="Upload official logo image">
+                        <span>📷 Upload Logo</span>
+                        <input type="file" accept="image/*" class="hidden" onchange="handleLogoUpload(event)">
+                    </label>
+
+                    <a href="#prayer" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-brand-crimson to-brand-flame hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-lg shadow-brand-crimson/30 transition-transform active:scale-95">
+                        Prayer Request
+                    </a>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl bg-white/10 text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-brand-navy border-b border-white/10 px-6 py-6 space-y-4 text-sm font-semibold text-slate-200">
+            <a href="#about" onclick="toggleMobileMenu()" class="block hover:text-amber-400">About Ministry</a>
+            <a href="#founder" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Our Founder</a>
+            <a href="#schedule" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Service Times</a>
+            <a href="#contact-map" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Map & Location</a>
+            <a href="#attendance-gallery" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Sunday Attendance</a>
+            <a href="#giving" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Partner & Give</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Contact Us</a>
+            
+            <div class="pt-4 border-t border-white/10 flex justify-between items-center">
+                <span class="text-xs text-slate-400">Custom Logo Upload:</span>
+                <label class="px-3 py-1.5 rounded-xl bg-white/10 text-white text-xs font-bold cursor-pointer">
+                    <span>Upload Image</span>
+                    <input type="file" accept="image/*" class="hidden" onchange="handleLogoUpload(event)">
+                </label>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-16 sm:py-28 overflow-hidden bg-gradient-to-b from-brand-darkNavy via-brand-navy to-brand-darkNavy">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#1E65B0_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-crimson/20 border border-brand-crimson/40 text-xs font-bold text-amber-300">
+                        <span class="w-2 h-2 rounded-full bg-brand-flame animate-pulse"></span>
+                        <span>Welcome to Rehoboth Chapel • Brandon, MB</span>
+                    </div>
+
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                        Experience the <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-brand-flame to-brand-crimson">Unfailing Flow</span> of God's Grace
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl font-light leading-relaxed">
+                        Living Spring Global Ministries is an apostolic, word-based global ministry dedicated to awakening nations, building families, and raising believers grounded in truth and spiritual power.
+                    </p>
+
+                    <!-- Service Time Badge Info -->
+                    <div class="p-4 sm:p-5 rounded-2xl glass-card border border-white/10 max-w-xl text-left space-y-3">
+                        <div class="text-xs font-extrabold uppercase tracking-wider text-amber-400">
+                            ⏳ Next Upcoming Gathering
+                        </div>
+                        <div id="heroCountdownText" class="text-xl sm:text-2xl font-serif font-bold text-white">
+                            Sunday Worship @ 7:00 AM CST
+                        </div>
+                        <div class="text-xs text-slate-300 flex items-center justify-between pt-1 border-t border-white/10">
+                            <span>Location: <strong class="text-white">1145 Lorne Avenue East, Brandon, MB</strong></span>
+                            <a href="#contact-map" class="px-2.5 py-1 rounded-lg bg-brand-blue/30 hover:bg-brand-blue text-amber-300 text-[11px] font-bold transition-colors">
+                                🗺️ View Map
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#schedule" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-700 hover:opacity-95 text-white font-extrabold text-sm shadow-xl shadow-brand-blue/30 transition-all">
+                            Service Schedule
+                        </a>
+                        <a href="#contact-map" class="px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-extrabold text-sm transition-all flex items-center gap-2">
+                            <span>🚗 Map Navigation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Emblem / Logo Card Showcase -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md p-8 rounded-3xl glass-card border border-white/15 text-center shadow-2xl flex flex-col items-center space-y-6">
+                        
+                        <div class="absolute -top-4 px-4 py-1 rounded-full bg-gradient-to-r from-brand-crimson to-brand-flame text-white text-[11px] font-extrabold tracking-widest uppercase shadow">
+                            OFFICIAL MINISTRY EMBLEM
+                        </div>
+
+                        <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-white/5 border border-white/10 p-4 flex items-center justify-center shadow-inner relative group">
+                            <div class="custom-logo-display w-full h-full flex items-center justify-center">
+                                <svg class="w-full h-full" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M80 5 C80 5, 87 22, 80 32 C75 22, 68 18, 80 5 Z" fill="url(#flameGradHero)"/>
+                                    <path d="M80 8 C80 8, 84 20, 80 28 C77 20, 72 16, 80 8 Z" fill="#FFC107"/>
+                                    <path d="M30 75 C30 38 52 28 80 28 C108 28 130 38 130 75 C115 78 45 78 30 75 Z" stroke="#1E65B0" stroke-width="3.5" fill="none"/>
+                                    <path d="M42 48 C52 42 108 42 118 48" stroke="#1E65B0" stroke-width="2" fill="none"/>
+                                    <path d="M34 62 C48 58 112 58 126 62" stroke="#1E65B0" stroke-width="2" fill="none"/>
+                                    <path d="M58 32 C50 50 50 68 58 76" stroke="#1E65B0" stroke-width="2" fill="none"/>
+                                    <path d="M102 32 C110 50 110 68 102 76" stroke="#1E65B0" stroke-width="2" fill="none"/>
+                                    <path d="M80 28 L80 77" stroke="#1E65B0" stroke-width="2.5" fill="none"/>
+                                    <path d="M80 32 L80 76 M66 48 L94 48" stroke="#0F2238" stroke-width="4.5" stroke-linecap="round"/>
+                                    <path d="M80 32 L80 76 M66 48 L94 48" stroke="#1E65B0" stroke-width="2.5" stroke-linecap="round"/>
+                                    <path d="M72 48 C76 44 84 44 88 48 C84 54 76 54 72 48 Z" fill="#FFFFFF"/>
+                                    <path d="M22 78 Q80 85 80 95 Q80 85 138 78 L146 88 Q80 96 80 106 Q80 96 14 88 Z" fill="#0F2238" stroke="#1E65B0" stroke-width="2"/>
+                                    <path d="M22 78 Q80 88 138 78 L134 82 Q80 92 26 82 Z" fill="#FFFFFF"/>
+                                    <defs>
+                                        <linearGradient id="flameGradHero" x1="80" y1="5" x2="80" y2="32" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF4D00"/>
+                                            <stop offset="1" stop-color="#E52928"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif font-black text-xl text-white tracking-wide uppercase">
+                                Living Spring
+                            </h3>
+                            <p class="text-xs font-bold text-slate-300 uppercase tracking-widest mt-0.5">
+                                Global Ministries
+                            </p>
+                            <p class="text-xs font-extrabold text-brand-crimson tracking-wider uppercase mt-1">
+                                REHOBOTH CHAPEL
+                            </p>
+                        </div>
+
+                        <p class="text-xs text-slate-400 italic">
+                            "The Lord has made room for us, and we shall be fruitful in the land." — Genesis 26:22
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sunday Attendance Photo Gallery -->
+    <section id="attendance-gallery" class="py-16 sm:py-24 bg-brand-navy border-t border-white/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Our Church Family</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Sunday Attendance Gallery</h2>
+                <p class="text-slate-300 text-sm sm:text-base mt-4 leading-relaxed">
+                    Celebrate our weekly worship gatherings. Add photos from each Sunday and browse them in this sliding gallery.
+                </p>
+            </div>
+
+            <div class="max-w-5xl mx-auto rounded-3xl glass-card border border-white/10 p-4 sm:p-6">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4 mb-6">
+                    <div class="flex flex-col sm:flex-row sm:items-end gap-3">
+                        <div class="flex-1">
+                            <label for="attendanceAdminEmail" class="block text-xs font-bold text-slate-300 mb-2">Church administrator email</label>
+                            <input type="email" id="attendanceAdminEmail" autocomplete="username" placeholder="admin@yourchurch.org" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
+                        </div>
+                        <div class="flex-1">
+                            <label for="attendanceAdminPassword" class="block text-xs font-bold text-slate-300 mb-2">Password</label>
+                            <input type="password" id="attendanceAdminPassword" autocomplete="current-password" placeholder="Supabase account password" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
+                        </div>
+                        <button type="button" id="attendanceSignInButton" class="px-5 py-3 rounded-xl bg-brand-blue hover:opacity-90 text-white font-bold text-sm">Staff sign in</button>
+                        <button type="button" id="attendanceSignOutButton" class="hidden px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm">Sign out</button>
+                    </div>
+                    <div class="mt-3 flex flex-wrap items-center gap-3">
+                        <button type="button" id="attendanceForgotPasswordButton" class="text-sm font-bold text-amber-300 hover:text-amber-200 underline underline-offset-4">Forgot password?</button>
+                        <span class="text-xs text-slate-400">A reset link will be sent to the email above.</span>
+                    </div>
+                    <div id="attendancePasswordRecoveryPanel" class="hidden mt-4 rounded-xl border border-amber-300/30 bg-black/20 p-4">
+                        <h3 class="text-sm font-bold text-white mb-3">Choose a new administrator password</h3>
+                        <label for="attendanceNewPassword" class="block text-xs font-bold text-slate-300 mb-2">New password (at least 8 characters)</label>
+                        <input type="password" id="attendanceNewPassword" autocomplete="new-password" minlength="8" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue" placeholder="Enter a new password">
+                        <label for="attendanceConfirmNewPassword" class="block text-xs font-bold text-slate-300 mt-3 mb-2">Confirm new password</label>
+                        <input type="password" id="attendanceConfirmNewPassword" autocomplete="new-password" minlength="8" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue" placeholder="Enter the new password again">
+                        <button type="button" id="attendanceUpdatePasswordButton" class="mt-3 px-5 py-3 rounded-xl bg-brand-blue hover:opacity-90 text-white font-bold text-sm">Save new password</button>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-3">Only sign in with a church staff account that has been created by the project administrator. Public visitors cannot upload photos.</p>
+                </div>
+
+                <div id="attendanceUploadControls" class="hidden flex-col sm:flex-row sm:items-end gap-4 mb-6">
+                    <div class="flex-1">
+                        <label for="attendanceDate" class="block text-xs font-bold text-slate-300 mb-2">Sunday date</label>
+                        <input type="date" id="attendanceDate" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue">
+                    </div>
+                    <div class="flex-1">
+                        <label for="attendanceCaption" class="block text-xs font-bold text-slate-300 mb-2">Caption (optional)</label>
+                        <input type="text" id="attendanceCaption" maxlength="100" placeholder="e.g. Thanksgiving Sunday worship" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
+                    </div>
+                    <label class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-blue-700 hover:opacity-95 text-white font-bold text-sm cursor-pointer shadow-lg">
+                        <span>📷 Upload Sunday Photos</span>
+                        <input id="attendancePhotoInput" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple class="hidden" onchange="handleAttendancePhotoUpload(event)">
+                    </label>
+                </div>
+
+                <p id="attendanceUploadStatus" aria-live="polite" class="text-xs text-slate-300 mb-5">Connecting to the online Sunday attendance gallery…</p>
+
+                <div class="relative overflow-hidden rounded-2xl bg-slate-950 border border-white/10">
+                    <div id="attendanceSlides" class="min-h-[260px] sm:min-h-[420px] flex items-center justify-center">
+                        <div id="attendanceEmptyState" class="text-center px-6 py-16">
+                            <div class="text-5xl mb-4">📸</div>
+                            <h3 class="font-serif text-xl font-bold text-white">Sunday moments belong here</h3>
+                            <p class="text-slate-400 text-sm mt-2">Choose photos above to begin your attendance slideshow.</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="changeAttendanceSlide(-1)" aria-label="Previous attendance photo" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-brand-blue text-white text-2xl flex items-center justify-center border border-white/20">‹</button>
+                    <button type="button" onclick="changeAttendanceSlide(1)" aria-label="Next attendance photo" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-brand-blue text-white text-2xl flex items-center justify-center border border-white/20">›</button>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
+                    <p id="attendanceSlideCaption" class="text-sm font-semibold text-white">No photos added yet</p>
+                    <div class="flex items-center gap-3">
+                        <span id="attendanceSlideCounter" class="text-xs text-slate-400">0 / 0</span>
+                        <button type="button" onclick="toggleAttendanceAutoplay()" id="attendancePlayButton" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 text-white text-xs font-bold">▶ Start slideshow</button>
+                    </div>
+                </div>
+                <p class="text-xs text-amber-200/90 mt-5 leading-relaxed">
+                    Photos are stored in the church’s Supabase photo bucket and are available to visitors after upload. Please upload only photos the church has permission to publish, and obtain consent where appropriate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Times Section -->
+    <section id="schedule" class="py-16 sm:py-24 bg-brand-darkNavy relative border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                <span class="text-xs font-extrabold text-brand-flame uppercase tracking-widest">Worship With Us</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">
+                    Weekly Service Schedule
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Join us in person at Rehoboth Chapel or online via our live global broadcast.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="p-8 rounded-3xl glass-card border-t-4 border-t-brand-crimson hover:border-white/20 transition-all flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="w-10 h-10 rounded-2xl bg-brand-crimson/20 text-brand-crimson font-bold flex items-center justify-center text-xl">
+                                ☀️
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-brand-crimson/20 text-brand-crimson text-[10px] font-extrabold uppercase tracking-wider">
+                                Weekly Worship
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-xl font-bold text-white">Sunday Worship Service</h3>
+                        <div class="text-3xl font-extrabold text-amber-300">7:00 AM</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Start your week with energetic worship, intense prayer, and sound apostolic teaching of the Word.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 text-xs text-slate-400 font-medium flex justify-between items-center">
+                        <span>📍 Rehoboth Chapel Sanctuary</span>
+                        <a href="#contact-map" class="text-brand-blue hover:underline">Directions</a>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl glass-card border-t-4 border-t-brand-blue hover:border-white/20 transition-all flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="w-10 h-10 rounded-2xl bg-brand-blue/20 text-brand-blue font-bold flex items-center justify-center text-xl">
+                                📖
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-brand-blue/20 text-brand-blue text-[10px] font-extrabold uppercase tracking-wider">
+                                Midweek Refresh
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-xl font-bold text-white">Wednesday Midweek Service</h3>
+                        <div class="text-3xl font-extrabold text-sky-400">7:00 PM</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Deep dive into scriptures, interactive Bible study, and spiritual growth teachings to recharge your week.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 text-xs text-slate-400 font-medium flex justify-between items-center">
+                        <span>📍 Main Chapel & Stream</span>
+                        <a href="#contact-map" class="text-brand-blue hover:underline">Directions</a>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl glass-card border-t-4 border-t-brand-flame hover:border-white/20 transition-all flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="w-10 h-10 rounded-2xl bg-brand-flame/20 text-brand-flame font-bold flex items-center justify-center text-xl">
+                                🔥
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-brand-flame/20 text-brand-flame text-[10px] font-extrabold uppercase tracking-wider">
+                                Monthly Night Vigil
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-xl font-bold text-white">Breakthrough Vigil</h3>
+                        <div class="text-2xl font-extrabold text-amber-400">Last Friday of Month</div>
+                        <div class="text-lg font-bold text-slate-200">10:00 PM CST</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            An empowered night of prophetic prayers, deliverance, worship, and supernatural breakthroughs.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 text-xs text-slate-400 font-medium flex justify-between items-center">
+                        <span>📍 Rehoboth Chapel Center</span>
+                        <a href="#contact-map" class="text-brand-blue hover:underline">Directions</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Ministry Section -->
+    <section id="about" class="py-16 sm:py-24 bg-brand-navy border-t border-white/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Our Global Mandate</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        Rooted in Truth, Flowing to Nations
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Living Spring Global Ministries — Rehoboth Chapel is built on the divine revelation that God makes room for His people to flourish. Through sound apostolic teachings, fervent prayer, and compassionate global outreach, we bring transformation to individuals and communities.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="text-brand-crimson font-serif font-bold text-xl">Global Missions</div>
+                            <div class="text-xs text-slate-400 mt-1">Spreading the gospel across Canada and continents.</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="text-brand-blue font-serif font-bold text-xl">Rehoboth Grace</div>
+                            <div class="text-xs text-slate-400 mt-1">Creating a welcoming place of rest and spiritual fruitfulness.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="p-8 rounded-3xl glass-card border border-white/10 space-y-6">
+                        <h3 class="font-serif text-xl font-bold text-white border-b border-white/10 pb-4">
+                            Ministry Pillars
+                        </h3>
+
+                        <div class="space-y-4 text-sm text-slate-300">
+                            <div class="flex gap-4">
+                                <span class="w-8 h-8 rounded-xl bg-brand-blue/30 text-brand-blue flex items-center justify-center font-bold flex-shrink-0">1</span>
+                                <div>
+                                    <strong class="text-white">Uncompromising Word of God:</strong> Preaching unadulterated biblical truth for total salvation and spiritual maturity.
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="w-8 h-8 rounded-xl bg-brand-crimson/30 text-brand-crimson flex items-center justify-center font-bold flex-shrink-0">2</span>
+                                <div>
+                                    <strong class="text-white">Fervent Prayer & Deliverance:</strong> Interceding for spiritual awakening, family restoration, and breaking yokes.
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="w-8 h-8 rounded-xl bg-brand-flame/30 text-brand-flame flex items-center justify-center font-bold flex-shrink-0">3</span>
+                                <div>
+                                    <strong class="text-white">Community & Benevolence:</strong> Demonstrating Christ's love through practical care and support in Brandon, MB.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder & Leadership Feature Article -->
+    <section id="founder" class="py-16 sm:py-24 bg-brand-darkNavy border-t border-white/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Founder Portrait / Badge Card with Interactive Photo Upload -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md p-8 rounded-3xl glass-card border border-brand-blue/30 text-center shadow-2xl flex flex-col items-center space-y-6">
+                        <div class="absolute -top-4 px-4 py-1 rounded-full bg-gradient-to-r from-brand-blue to-brand-crimson text-white text-[11px] font-extrabold tracking-widest uppercase shadow">
+                            FOUNDER & LEAD PASTOR
+                        </div>
+
+                        <!-- Interactive Photo Upload Container -->
+                        <label for="pastorPhotoInput" class="cursor-pointer group relative w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-tr from-brand-navy via-brand-blue to-brand-crimson p-1 shadow-2xl transition-transform hover:scale-105">
+                            <div id="pastorPhotoDisplay" class="w-full h-full rounded-full bg-brand-darkNavy border-4 border-white/10 flex items-center justify-center overflow-hidden relative">
+                                <svg class="w-28 h-28 text-slate-300 group-hover:opacity-30 transition-opacity" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-white transition-opacity p-2 text-center">
+                                    <span class="text-2xl mb-1">📷</span>
+                                    <span class="text-[11px] font-bold uppercase tracking-wider">Click to Upload Photo</span>
+                                </div>
+                            </div>
+                            <input type="file" id="pastorPhotoInput" accept="image/*" class="hidden" onchange="handlePastorPhotoUpload(event)">
+                            <span class="absolute bottom-2 right-2 p-2.5 rounded-full bg-brand-flame text-white text-xs shadow-lg" title="Upload Photo">
+                                📸
+                            </span>
+                        </label>
+
+                        <!-- Dedicated Upload Button Beside Article -->
+                        <label class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-crimson hover:opacity-95 text-white text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-lg transition-all active:scale-95">
+                            <span class="text-base">📷</span>
+                            <span>Upload Pastor Isaac's Photo</span>
+                            <input type="file" accept="image/*" class="hidden" onchange="handlePastorPhotoUpload(event)">
+                        </label>
+
+                        <div>
+                            <h3 class="font-serif font-black text-2xl text-white tracking-wide">
+                                Pastor Isaac Omonaiye
+                            </h3>
+                            <p class="text-xs font-extrabold text-amber-400 uppercase tracking-widest mt-1">
+                                Founder & General Overseer
+                            </p>
+                            <p class="text-xs font-bold text-slate-300 uppercase tracking-wider mt-0.5">
+                                Living Spring Global Ministries
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-left text-xs text-slate-300 space-y-2 w-full">
+                            <div class="flex items-center gap-2 text-white font-bold">
+                                <span>📜 Divine Mandate:</span>
+                            </div>
+                            <p class="italic text-slate-300">
+                                "To raise a Spirit-led, Word-grounded generation that quenches the thirst of nations through the gospel of Jesus Christ."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Founder Article Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-extrabold text-brand-flame uppercase tracking-widest">About Our Founder</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        The Vision, The Calling, and The Founder
+                    </h2>
+
+                    <div class="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base leading-relaxed space-y-4 font-light">
+                        <p>
+                            <strong class="text-white font-semibold">Pastor Isaac Omonaiye</strong> is the founder and visionary leader of <strong class="text-amber-300 font-semibold">Living Spring Global Ministries (Rehoboth Chapel)</strong>. Called with a clear apostolic mandate to herald the uncompromised Word of God, Pastor Isaac has dedicated his life to equipping believers, restoring hope to families, and building a global community anchored in faith, prayer, and divine purpose.
+                        </p>
+
+                        <p>
+                            Under his visionary leadership, Living Spring Global Ministries was established on the revelation of <strong class="text-white font-semibold">Genesis 26:22</strong> — <em>"He named it Rehoboth, saying, 'Now the Lord has given us room and we will flourish in the land.'"</em> With a deep passion for spiritual revival and kingdom expansion, Pastor Isaac envisioned a sanctuary where people from every walk of life could encounter the living presence of God, experience spiritual deliverance, and grow into maturity in Christ.
+                        </p>
+
+                        <p>
+                            From its chapel in <strong class="text-amber-300 font-semibold">Brandon, Manitoba</strong>, to its expanding global outreach, Pastor Isaac Omonaiye leads the congregation with intense fervor for prayer, insightful biblical teaching, and a compassionate shepherd's heart. His ministry emphasizes:
+                        </p>
+
+                        <ul class="space-y-2 list-none pl-0">
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-crimson font-bold text-lg leading-none">✦</span>
+                                <div><strong class="text-white">Apostolic Word & Discipleship:</strong> Teaching believers to walk in spiritual victory and sound doctrine.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-crimson font-bold text-lg leading-none">✦</span>
+                                <div><strong class="text-white">Fervent Prayer & Revival:</strong> Spearheading transformative prayer gatherings, including the monthly Breakthrough Vigil.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-crimson font-bold text-lg leading-none">✦</span>
+                                <div><strong class="text-white">Community & Global Impact:</strong> Fostering family fellowship, youth mentorship, and benevolent community care across Brandon and beyond.</div>
+                            </li>
+                        </ul>
+
+                        <p class="pt-2">
+                            Through his unwavering dedication to the Great Commission, Pastor Isaac continues to inspire thousands to surrender to Jesus Christ, walk in their divine identity, and build lives that glorify God.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="#prayer" class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-blue-700 hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-lg">
+                            Request Pastoral Prayer
+                        </a>
+                        <a href="#schedule" class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm">
+                            Worship With Pastor Isaac
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Times Section -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Partner with the Vision</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        Support Global Evangelism & Community Outreach
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Your tithes, offerings, and seed faith empower Living Spring Global Ministries to preach the gospel, stream services globally, and support families right here in Brandon, MB.
+                    </p>
+
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs text-slate-300">
+                        <div class="font-bold text-white">E-Transfer Giving (Canada):</div>
+                        <div class="text-amber-300 font-mono text-sm">giving@livingspringglobal.org</div>
+                        <div>(Auto-deposit enabled • Please include your full name in note)</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="p-8 rounded-3xl glass-card border border-white/10 space-y-6">
+                        <h3 class="font-serif text-xl font-bold text-white text-center">
+                            Online Tithes & Seed Offering
+                        </h3>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 mb-1">Select Fund Category:</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue">
+                                    <option class="bg-brand-navy text-white">Tithes & Offerings</option>
+                                    <option class="bg-brand-navy text-white">Rehoboth Building Fund</option>
+                                    <option class="bg-brand-navy text-white">Global Missions</option>
+                                    <option class="bg-brand-navy text-white">Benevolence & Community Care</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 mb-1">Amount ($ CAD):</label>
+                                <div class="grid grid-cols-4 gap-2 mb-3">
+                                    <button onclick="setAmount(50)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$50</button>
+                                    <button onclick="setAmount(100)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$100</button>
+                                    <button onclick="setAmount(250)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$250</button>
+                                    <button onclick="setAmount(500)" class="py-2 rounded-xl bg-white/10 hover:bg-brand-blue text-xs font-bold text-white">$500</button>
+                                </div>
+                                <input type="number" id="customAmount" placeholder="Or enter custom amount" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue">
+                            </div>
+
+                            <button onclick="submitGiving()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-crimson to-brand-flame hover:opacity-95 text-white font-bold text-sm shadow-xl transition-all">
+                                Proceed to Secure Giving
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Request & Contact Section with Embedded Map Navi -->
+    <section id="contact" class="py-16 sm:py-24 bg-brand-darkNavy border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Details & Map Navigation under Brandon MB -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs font-extrabold text-brand-flame uppercase tracking-widest">Connect With Us</span>
+                        <h2 class="font-serif text-3xl font-bold text-white mt-1">
+                            Visit Rehoboth Chapel
+                        </h2>
+                    </div>
+
+                    <!-- Sanctuary Address Box -->
+                    <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-white text-sm">📍 Sanctuary Address:</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-brand-blue/30 text-amber-300 text-[10px] font-extrabold uppercase">
+                                Brandon, MB
+                            </span>
+                        </div>
+                        <div class="text-amber-300 font-bold text-lg">1145 Lorne Avenue East</div>
+                        <div class="text-slate-300 text-xs">Brandon, Manitoba R7A 1W9, Canada</div>
+                    </div>
+
+                    <!-- MAP NAVIGATION WIDGET UNDER BRANDON MB -->
+                    <div id="contact-map" class="p-4 rounded-2xl glass-card border border-white/15 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xl">🗺️</span>
+                                <div>
+                                    <h4 class="font-serif font-bold text-white text-sm">Map Navigation</h4>
+                                    <p class="text-[11px] text-slate-400">1145 Lorne Avenue East • Brandon, MB</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">
+                                Live GPS
+                            </span>
+                        </div>
+
+                        <!-- Embedded Interactive Map Canvas / Iframe -->
+                        <div class="relative w-full h-52 sm:h-60 rounded-xl overflow-hidden border border-white/10 shadow-inner group">
+                            <iframe 
+                                class="w-full h-full border-0" 
+                                src="https://maps.google.com/maps?q=1145%20Lorne%20Avenue%20East,%20Brandon,%20MB&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <div class="absolute bottom-2 right-2 px-3 py-1 rounded-lg bg-brand-navy/90 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white shadow">
+                                📍 Brandon Sanctuary
+                            </div>
+                        </div>
+
+                        <!-- Map Quick Action Navigation Buttons -->
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=1145+Lorne+Avenue+East,+Brandon,+MB" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-brand-blue hover:bg-blue-600 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 transition-colors shadow">
+                                <span>🚗 Get Directions</span>
+                            </a>
+                            <a href="https://maps.google.com/?cid=13882620206961421478" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 transition-colors">
+                                <span>📍 Open Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-1 text-xs text-slate-300">
+                        <div class="font-bold text-white">🕒 Worship Hours:</div>
+                        <div><strong>Sunday Worship:</strong> 7:00 AM CST</div>
+                        <div><strong>Wednesday Midweek:</strong> 7:00 PM CST</div>
+                        <div><strong>Breakthrough Vigil:</strong> Last Friday of Month @ 10:00 PM CST</div>
+                    </div>
+                </div>
+
+                <!-- Prayer Request Form -->
+                <div id="prayer" class="lg:col-span-7">
+                    <div class="p-8 rounded-3xl glass-card border border-white/10 space-y-6">
+                        <h3 class="font-serif text-2xl font-bold text-white">
+                            Submit Confidential Prayer Request
+                        </h3>
+                        <p class="text-xs text-slate-400">
+                            Our pastoral care and intercessory prayer team stand in faith with you.
+                        </p>
+
+                        <form onsubmit="handlePrayerSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 mb-1">Full Name:</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 mb-1">Email or Phone:</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue" placeholder="Contact details">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 mb-1">Prayer Intentions / Testimony:</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-brand-blue" placeholder="Share your prayer request here..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-blue hover:bg-blue-600 text-white font-bold text-sm shadow-lg transition-all">
+                                Send Prayer Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            
+            <div class="flex items-center justify-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center">
+                    <div class="custom-logo-display w-full h-full flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M80 5 C80 5, 87 22, 80 32 C75 22, 68 18, 80 5 Z" fill="#FF4D00"/>
+                            <path d="M30 75 C30 38 52 28 80 28 C108 28 130 38 130 75 Z" stroke="#1E65B0" stroke-width="3.5" fill="none"/>
+                            <path d="M80 32 L80 76 M66 48 L94 48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M22 78 Q80 85 80 95 Q80 85 138 78 Z" fill="#0F2238" stroke="#1E65B0" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+                <span class="font-serif font-black text-white text-lg">LIVING SPRING GLOBAL MINISTRIES</span>
+            </div>
+
+            <p class="text-xs text-slate-400 max-w-xl mx-auto">
+                Rehoboth Chapel • 1145 Lorne Avenue East, Brandon, MB, Canada.<br>
+                Sunday Worship @ 7:00 AM • Midweek @ 7:00 PM • Breakthrough Vigil Last Friday @ 10:00 PM
+            </p>
+
+            <div class="flex justify-center gap-4 text-xs font-bold">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=1145+Lorne+Avenue+East,+Brandon,+MB" target="_blank" class="text-amber-300 hover:underline">🗺️ Get Driving Directions to Brandon Sanctuary</a>
+            </div>
+
+            <div class="text-[11px] text-slate-500 pt-4 border-t border-white/10">
+                &copy; <span id="yearSpan"></span> Living Spring Global Ministries. All rights reserved.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Supabase JavaScript client for the Sunday Attendance Gallery -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Supabase project connection. The publishable key is intended for browser use; never place secret/service_role keys here.
+        // The publishable key is designed for browser use; never put a secret/service_role key here.
+        const SUPABASE_URL = 'https://oebrncnwpbtagaxlhjxj.supabase.co';
+        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_M94Guoz09c0txDQuZFB_1g_lovIYmzu';
+        const ATTENDANCE_BUCKET = 'Sunday-Attendance';
+        const supabaseClient = (window.supabase && /^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(SUPABASE_URL))
+            ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
+            : null;
+
+        document.getElementById('yearSpan').innerText = new Date().getFullYear();
+
+        function handlePastorPhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const display = document.getElementById('pastorPhotoDisplay');
+                    if (display) {
+                        display.innerHTML = `<img src="${e.target.result}" alt="Pastor Isaac Omonaiye" class="w-full h-full object-cover rounded-full">`;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function handleSleddingPhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const galleryGrid = document.getElementById('sleddingGalleryGrid');
+                    
+                    const newCard = document.createElement('div');
+                    newCard.className = 'rounded-3xl glass-card overflow-hidden border border-brand-flame shadow-2xl transition-all animate-pulse';
+                    newCard.innerHTML = `
+                        <div class="relative h-56 bg-slate-900 overflow-hidden">
+                            <img src="${e.target.result}" alt="Uploaded Sledding Picture" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-brand-crimson text-white text-[10px] font-bold uppercase">
+                                Newly Uploaded
+                            </div>
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <h3 class="font-serif font-bold text-white text-base">Community Sledding Moment</h3>
+                            <p class="text-xs text-slate-300">Shared photo from our Rehoboth Chapel winter fellowship.</p>
+                            <div class="text-[10px] font-semibold text-amber-400 pt-2 flex justify-between">
+                                <span>📅 Uploaded Just Now</span>
+                                <span>📍 Brandon, MB</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    galleryGrid.insertBefore(newCard, galleryGrid.firstChild);
+                    
+                    setTimeout(() => {
+                        newCard.classList.remove('animate-pulse');
+                    }, 1500);
+
+                    alert("Praise God! Your sledding picture has been uploaded to the church community gallery!");
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+
+        // Sunday attendance gallery: Supabase-backed upload, public listing, sliding controls, and autoplay.
+        let attendancePhotos = [];
+        let attendanceSlideIndex = 0;
+        let attendanceAutoplayTimer = null;
+        let attendanceSession = null;
+
+        function attendanceStatus(message) {
+            const el = document.getElementById('attendanceUploadStatus');
+            if (el) el.textContent = message;
+        }
+
+        function setAttendanceAuthUI(session) {
+            attendanceSession = session || null;
+            const controls = document.getElementById('attendanceUploadControls');
+            const signIn = document.getElementById('attendanceSignInButton');
+            const signOut = document.getElementById('attendanceSignOutButton');
+            if (controls) {
+                controls.classList.toggle('hidden', !attendanceSession);
+                controls.classList.toggle('flex', !!attendanceSession);
+            }
+            if (signIn) signIn.classList.toggle('hidden', !!attendanceSession);
+            if (signOut) signOut.classList.toggle('hidden', !attendanceSession);
+        }
+
+        async function attendanceSignIn() {
+            if (!supabaseClient) {
+                attendanceStatus('Could not initialize Supabase. Check the Project URL and publishable key in the website configuration.');
+                return;
+            }
+            const email = document.getElementById('attendanceAdminEmail').value.trim();
+            const password = document.getElementById('attendanceAdminPassword').value;
+            if (!email || !password) {
+                attendanceStatus('Enter the authorized church staff email and password to sign in.');
+                return;
+            }
+            const button = document.getElementById('attendanceSignInButton');
+            button.disabled = true;
+            button.textContent = 'Signing in…';
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            button.disabled = false;
+            button.textContent = 'Staff sign in';
+            if (error) {
+                attendanceStatus('Sign-in failed: ' + error.message);
+                return;
+            }
+            setAttendanceAuthUI(data.session);
+            document.getElementById('attendanceAdminPassword').value = '';
+            attendanceStatus('Signed in. You can now upload Sunday attendance photos.');
+        }
+
+        async function attendanceSignOut() {
+            if (!supabaseClient) return;
+            const { error } = await supabaseClient.auth.signOut();
+            if (error) attendanceStatus('Could not sign out: ' + error.message);
+            else attendanceStatus('You are signed out. Public photos remain visible; uploading requires staff sign-in.');
+        }
+
+        // Send a password-reset email. For a local file:// preview, use the published GitHub Pages URL.
+        const ATTENDANCE_RESET_REDIRECT_URL = 'https://oluremiesther528-byte.github.io/Living-Spring-Global-Ministry/';
+
+        async function attendanceSendPasswordReset() {
+            if (!supabaseClient) {
+                attendanceStatus('Could not initialize Supabase. Check the project URL and publishable key.');
+                return;
+            }
+            const email = document.getElementById('attendanceAdminEmail').value.trim();
+            if (!email) {
+                attendanceStatus('Enter your church administrator email first, then choose Forgot password?');
+                document.getElementById('attendanceAdminEmail').focus();
+                return;
+            }
+            const button = document.getElementById('attendanceForgotPasswordButton');
+            button.disabled = true;
+            button.textContent = 'Sending reset link…';
+            const redirectTo = (window.location.protocol === 'https:' || window.location.protocol === 'http:')
+                ? window.location.origin + window.location.pathname
+                : ATTENDANCE_RESET_REDIRECT_URL;
+            const { error } = await supabaseClient.auth.resetPasswordForEmail(email, { redirectTo });
+            button.disabled = false;
+            button.textContent = 'Forgot password?';
+            if (error) {
+                attendanceStatus('Could not send reset email: ' + error.message + ' Check Supabase Auth URL settings and try again.');
+                return;
+            }
+            attendanceStatus('If this email belongs to an account, Supabase will send a password-reset link. Check your inbox and Spam folder. Open the link on the published church website to choose a new password.');
+        }
+
+        async function attendanceUpdatePassword() {
+            if (!supabaseClient) {
+                attendanceStatus('Could not initialize Supabase.');
+                return;
+            }
+            const password = document.getElementById('attendanceNewPassword').value;
+            const confirmation = document.getElementById('attendanceConfirmNewPassword').value;
+            if (password.length < 8) {
+                attendanceStatus('Choose a password with at least 8 characters.');
+                return;
+            }
+            if (password !== confirmation) {
+                attendanceStatus('The two new passwords do not match.');
+                return;
+            }
+            const button = document.getElementById('attendanceUpdatePasswordButton');
+            button.disabled = true;
+            button.textContent = 'Saving…';
+            const { error } = await supabaseClient.auth.updateUser({ password });
+            button.disabled = false;
+            button.textContent = 'Save new password';
+            if (error) {
+                attendanceStatus('Could not update password: ' + error.message);
+                return;
+            }
+            document.getElementById('attendancePasswordRecoveryPanel').classList.add('hidden');
+            document.getElementById('attendanceNewPassword').value = '';
+            document.getElementById('attendanceConfirmNewPassword').value = '';
+            document.getElementById('attendanceAdminPassword').value = '';
+            attendanceStatus('Your administrator password has been changed. You can now sign in with your new password.');
+        }
+
+        function safeFilePart(value) {
+            return String(value || '').normalize('NFKD').replace(/[^a-zA-Z0-9_-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'sunday-worship';
+        }
+
+        function captionFromStorageName(name) {
+            const base = name.replace(/\.[^.]+$/, '');
+            const parts = base.split('__');
+            return { date: /^\d{4}-\d{2}-\d{2}$/.test(parts[0]) ? parts[0] : '', caption: (parts[1] || 'Sunday worship gathering').replace(/-/g, ' ') };
+        }
+
+        async function loadAttendancePhotos() {
+            const slides = document.getElementById('attendanceSlides');
+            if (!supabaseClient) {
+                attendancePhotos = [];
+                renderAttendanceSlide();
+                attendanceStatus('Could not initialize Supabase. Check the Project URL and publishable key in the website configuration.');
+                return;
+            }
+            attendanceStatus('Loading photos from the church’s online gallery…');
+            const { data, error } = await supabaseClient.storage.from(ATTENDANCE_BUCKET).list('', {
+                limit: 100,
+                sortBy: { column: 'created_at', order: 'desc' }
+            });
+            if (error) {
+                attendancePhotos = [];
+                renderAttendanceSlide();
+                attendanceStatus('Could not load gallery photos: ' + error.message + '. Check the bucket name and SELECT policy.');
+                return;
+            }
+            attendancePhotos = (data || [])
+                .filter(item => item.name && /\.(jpe?g|png|webp|gif)$/i.test(item.name))
+                .map(item => {
+                    const parsed = captionFromStorageName(item.name);
+                    const { data: urlData } = supabaseClient.storage.from(ATTENDANCE_BUCKET).getPublicUrl(item.name);
+                    return { src: urlData.publicUrl, date: parsed.date, caption: parsed.caption, fileName: item.name };
+                });
+            attendanceSlideIndex = 0;
+            renderAttendanceSlide();
+            attendanceStatus(attendancePhotos.length
+                ? `${attendancePhotos.length} photo${attendancePhotos.length === 1 ? '' : 's'} loaded from the online church gallery.`
+                : 'No online photos yet. Authorized church staff can sign in to upload the first photos.');
+        }
+
+        async function handleAttendancePhotoUpload(event) {
+            const files = Array.from(event.target.files || []);
+            if (!supabaseClient) {
+                attendanceStatus('Could not initialize Supabase. Check the Project URL and publishable key in the website configuration.');
+                event.target.value = '';
+                return;
+            }
+            if (!attendanceSession) {
+                attendanceStatus('Please sign in with an authorized church staff account before uploading.');
+                event.target.value = '';
+                return;
+            }
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+            const validFiles = files.filter(file => allowedTypes.includes(file.type) && file.size <= 5 * 1024 * 1024);
+            if (!validFiles.length) {
+                attendanceStatus('Choose JPG, PNG, WebP, or GIF images no larger than 5 MB each.');
+                event.target.value = '';
+                return;
+            }
+            const selectedDate = document.getElementById('attendanceDate').value || new Date().toISOString().slice(0, 10);
+            const caption = document.getElementById('attendanceCaption').value.trim() || 'Sunday worship gathering';
+            let succeeded = 0;
+            let failed = 0;
+            for (const file of validFiles) {
+                const extension = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '') || 'jpg';
+                const storageName = `${selectedDate}__${safeFilePart(caption)}__${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${extension}`;
+                const { error } = await supabaseClient.storage.from(ATTENDANCE_BUCKET).upload(storageName, file, {
+                    cacheControl: '3600',
+                    contentType: file.type,
+                    upsert: false
+                });
+                if (error) failed++;
+                else succeeded++;
+            }
+            document.getElementById('attendanceCaption').value = '';
+            event.target.value = '';
+            await loadAttendancePhotos();
+            if (failed) attendanceStatus(`${succeeded} photo(s) uploaded; ${failed} failed. ${failed ? 'Check storage policies and file limits.' : ''}`);
+            else attendanceStatus(`${succeeded} photo(s) uploaded successfully and saved online.`);
+        }
+
+        function renderAttendanceSlide() {
+            const slides = document.getElementById('attendanceSlides');
+            const caption = document.getElementById('attendanceSlideCaption');
+            const counter = document.getElementById('attendanceSlideCounter');
+            const playButton = document.getElementById('attendancePlayButton');
+            if (!slides) return;
+            if (!attendancePhotos.length) {
+                slides.innerHTML = `<div id="attendanceEmptyState" class="text-center px-6 py-16"><div class="text-5xl mb-4">📸</div><h3 class="font-serif text-xl font-bold text-white">Sunday moments belong here</h3><p class="text-slate-400 text-sm mt-2">Online Sunday attendance photos will appear here.</p></div>`;
+                caption.textContent = 'No photos available yet';
+                counter.textContent = '0 / 0';
+                if (playButton) playButton.textContent = '▶ Start slideshow';
+                return;
+            }
+            attendanceSlideIndex = (attendanceSlideIndex + attendancePhotos.length) % attendancePhotos.length;
+            const photo = attendancePhotos[attendanceSlideIndex];
+            const image = document.createElement('img');
+            image.src = photo.src;
+            image.alt = photo.caption || 'Sunday attendance photo';
+            image.className = 'w-full h-full max-h-[65vh] object-contain mx-auto';
+            image.style.minHeight = '260px';
+            slides.replaceChildren(image);
+            const prettyDate = photo.date ? new Date(photo.date + 'T12:00:00').toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'}) : '';
+            caption.textContent = `${photo.caption}${prettyDate ? ' • ' + prettyDate : ''}`;
+            counter.textContent = `${attendanceSlideIndex + 1} / ${attendancePhotos.length}`;
+            if (playButton) playButton.textContent = attendanceAutoplayTimer ? 'Ⅱ Pause slideshow' : '▶ Start slideshow';
+        }
+
+        function escapeAttendanceText(value) {
+            return String(value).replace(/[&<>"']/g, character => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[character]));
+        }
+
+        function changeAttendanceSlide(direction) {
+            if (!attendancePhotos.length) return;
+            attendanceSlideIndex = (attendanceSlideIndex + direction + attendancePhotos.length) % attendancePhotos.length;
+            renderAttendanceSlide();
+        }
+
+        function toggleAttendanceAutoplay() {
+            if (attendanceAutoplayTimer) {
+                clearInterval(attendanceAutoplayTimer);
+                attendanceAutoplayTimer = null;
+            } else {
+                if (attendancePhotos.length < 2) {
+                    attendanceStatus('Add at least two online photos to start the slideshow.');
+                    return;
+                }
+                attendanceAutoplayTimer = setInterval(() => changeAttendanceSlide(1), 4000);
+            }
+            renderAttendanceSlide();
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const signInButton = document.getElementById('attendanceSignInButton');
+            const signOutButton = document.getElementById('attendanceSignOutButton');
+            const forgotPasswordButton = document.getElementById('attendanceForgotPasswordButton');
+            const updatePasswordButton = document.getElementById('attendanceUpdatePasswordButton');
+            if (signInButton) signInButton.addEventListener('click', attendanceSignIn);
+            if (signOutButton) signOutButton.addEventListener('click', attendanceSignOut);
+            if (forgotPasswordButton) forgotPasswordButton.addEventListener('click', attendanceSendPasswordReset);
+            if (updatePasswordButton) updatePasswordButton.addEventListener('click', attendanceUpdatePassword);
+            if (supabaseClient) {
+                const { data } = await supabaseClient.auth.getSession();
+                setAttendanceAuthUI(data.session);
+                supabaseClient.auth.onAuthStateChange((event, session) => {
+                    setAttendanceAuthUI(session);
+                    if (event === 'PASSWORD_RECOVERY') {
+                        document.getElementById('attendancePasswordRecoveryPanel').classList.remove('hidden');
+                        attendanceStatus('Password reset link verified. Enter and confirm your new password below.');
+                        document.getElementById('attendancePasswordRecoveryPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            } else {
+                setAttendanceAuthUI(null);
+            }
+            await loadAttendancePhotos();
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function setAmount(val) {
+            document.getElementById('customAmount').value = val;
+        }
+
+        function submitGiving() {
+            const amt = document.getElementById('customAmount').value || '50';
+            alert(`Thank you for your seed offering of $${amt}! Redirecting to secure processing or e-Transfer instructions.`);
+        }
+
+        function handlePrayerSubmit(event) {
+            event.preventDefault();
+            alert('Your prayer request has been received confidentially. Our intercessory team will join you in prayer.');
+            event.target.reset();
+        }
+
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const logoDisplays = document.querySelectorAll('.custom-logo-display');
+                    logoDisplays.forEach(container => {
+                        container.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-contain rounded-xl">`;
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
