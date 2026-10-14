@@ -471,27 +471,20 @@
                             FOUNDER & LEAD PASTOR
                         </div>
 
-                        <!-- Interactive Photo Upload Container -->
-                        <label for="pastorPhotoInput" class="cursor-pointer group relative w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-tr from-brand-navy via-brand-blue to-brand-crimson p-1 shadow-2xl transition-transform hover:scale-105">
+                        <!-- Public visitors see the permanent portrait; only the church administrator sees upload controls. -->
+                        <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-tr from-brand-navy via-brand-blue to-brand-crimson p-1 shadow-2xl">
                             <div id="pastorPhotoDisplay" class="w-full h-full rounded-full bg-brand-darkNavy border-4 border-white/10 flex items-center justify-center overflow-hidden relative">
-                                <img src="pastor-isaac.jpg" alt="Pastor Isaac Omonaiye" class="w-full h-full object-cover rounded-full">
-                                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-white transition-opacity p-2 text-center">
-                                    <span class="text-2xl mb-1">📷</span>
-                                    <span class="text-[11px] font-bold uppercase tracking-wider">Click to Upload Photo</span>
-                                </div>
+                                <img id="pastorPortraitImage" src="pastor-isaac.jpg" alt="Pastor Isaac Omonaiye" class="w-full h-full object-cover rounded-full">
                             </div>
-                            <input type="file" id="pastorPhotoInput" accept="image/*" class="hidden" onchange="handlePastorPhotoUpload(event)">
-                            <span class="absolute bottom-2 right-2 p-2.5 rounded-full bg-brand-flame text-white text-xs shadow-lg" title="Upload Photo">
-                                📸
-                            </span>
-                        </label>
-
-                        <!-- Dedicated Upload Button Beside Article -->
-                        <label class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-crimson hover:opacity-95 text-white text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-lg transition-all active:scale-95">
-                            <span class="text-base">📷</span>
-                            <span>Upload Pastor Isaac's Photo</span>
-                            <input type="file" accept="image/*" class="hidden" onchange="handlePastorPhotoUpload(event)">
-                        </label>
+                        </div>
+                        <div id="pastorPhotoAdminControls" class="hidden w-full">
+                            <label for="pastorPhotoInput" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-crimson hover:opacity-95 text-white text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-lg transition-all active:scale-95">
+                                <span class="text-base">📷</span>
+                                <span>Upload Pastor Isaac's Photo</span>
+                                <input type="file" id="pastorPhotoInput" accept="image/jpeg,image/png,image/webp" class="hidden" onchange="handlePastorPhotoUpload(event)">
+                            </label>
+                            <p class="text-xs text-slate-400 mt-2">Administrator only. The new photo is saved online for all visitors.</p>
+                        </div>
 
                         <div>
                             <h3 class="font-serif font-black text-2xl text-white tracking-wide">
@@ -781,18 +774,55 @@
 
         document.getElementById('yearSpan').innerText = new Date().getFullYear();
 
-        function handlePastorPhotoUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const display = document.getElementById('pastorPhotoDisplay');
-                    if (display) {
-                        display.innerHTML = `<img src="${e.target.result}" alt="Pastor Isaac Omonaiye" class="w-full h-full object-cover rounded-full">`;
-                    }
-                };
-                reader.readAsDataURL(file);
+        const PASTOR_ADMIN_UID = '25767a5c-cb2f-430b-b20e-3328b335c302';
+
+        async function loadPastorPortrait() {
+            if (!supabaseClient) return;
+            const { data, error } = await supabaseClient.storage.from(ATTENDANCE_BUCKET).list('pastor', {
+                limit: 100,
+                sortBy: { column: 'created_at', order: 'desc' }
+            });
+            if (error || !data) return;
+            const latest = data
+                .filter(item => item.name && /^pastor-isaac-.*\\.(jpe?g|png|webp)$/i.test(item.name))
+                .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))[0];
+            if (latest) {
+                const { data: urlData } = supabaseClient.storage.from(ATTENDANCE_BUCKET).getPublicUrl('pastor/' + latest.name);
+                const image = document.getElementById('pastorPortraitImage');
+                if (image && urlData.publicUrl) image.src = urlData.publicUrl;
             }
+        }
+
+        async function handlePastorPhotoUpload(event) {
+            const file = event.target.files && event.target.files[0];
+            event.target.value = '';
+            if (!file) return;
+            if (!attendanceSession || !attendanceSession.user || attendanceSession.user.id !== PASTOR_ADMIN_UID) {
+                attendanceStatus('Only the designated church administrator can upload Pastor Isaac’s photo.');
+                return;
+            }
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            if (!allowedTypes.includes(file.type) || file.size > 5 * 1024 * 1024) {
+                attendanceStatus('Choose a JPG, PNG, or WebP image no larger than 5 MB.');
+                return;
+            }
+            const input = document.getElementById('pastorPhotoInput');
+            if (input) input.disabled = true;
+            attendanceStatus('Uploading Pastor Isaac’s photo…');
+            const extension = file.type === 'image/jpeg' ? 'jpg' : file.type === 'image/png' ? 'png' : 'webp';
+            const storageName = 'pastor-isaac-' + Date.now() + '.' + extension;
+            const { error } = await supabaseClient.storage.from(ATTENDANCE_BUCKET).upload('pastor/' + storageName, file, {
+                cacheControl: '3600',
+                contentType: file.type,
+                upsert: false
+            });
+            if (input) input.disabled = false;
+            if (error) {
+                attendanceStatus('Photo upload failed: ' + error.message + '. Confirm the administrator storage policy allows uploads to the Sunday-Attendance bucket.');
+                return;
+            }
+            await loadPastorPortrait();
+            attendanceStatus('Pastor Isaac’s photo was saved online and is now displayed for visitors.');
         }
 
         function handleSleddingPhotoUpload(event) {
@@ -847,6 +877,9 @@
 
         function setAttendanceAuthUI(session) {
             attendanceSession = session || null;
+            const pastorControls = document.getElementById('pastorPhotoAdminControls');
+            const isPastorAdmin = !!(attendanceSession && attendanceSession.user && attendanceSession.user.id === PASTOR_ADMIN_UID);
+            if (pastorControls) pastorControls.classList.toggle('hidden', !isPastorAdmin);
             const controls = document.getElementById('attendanceUploadControls');
             const signIn = document.getElementById('attendanceSignInButton');
             const signOut = document.getElementById('attendanceSignOutButton');
@@ -1111,7 +1144,7 @@
             } else {
                 setAttendanceAuthUI(null);
             }
-            await loadAttendancePhotos();
+            await Promise.all([loadAttendancePhotos(), loadPastorPortrait()]);
         });
 
         function toggleMobileMenu() {
