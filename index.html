@@ -271,11 +271,16 @@
         /* Shorter giving form fields, without changing the site's colors or layout. */
         #donorGivingForm input,
         #donorGivingForm select,
-        #donorGivingForm > div {
+        #donorGivingForm > div,
+        #communityDonationForm input,
+        #communityDonationForm select,
+        #communityDonationForm textarea,
+        #communityDonationForm > div {
             width: 100%;
             max-width: 34rem;
         }
-        #donorGivingForm > div > .grid {
+        #donorGivingForm > div > .grid,
+        #communityDonationForm > div > .grid {
             width: 100%;
         }
         /* Subtle animated background; all existing brand colors are preserved. */
