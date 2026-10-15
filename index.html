@@ -270,9 +270,13 @@
     <style>
         /* Shorter giving form fields, without changing the site's colors or layout. */
         #donorGivingForm input,
-        #donorGivingForm select {
+        #donorGivingForm select,
+        #donorGivingForm > div {
             width: 100%;
             max-width: 34rem;
+        }
+        #donorGivingForm > div > .grid {
+            width: 100%;
         }
         /* Subtle animated background; all existing brand colors are preserved. */
         @keyframes livingSpringBackgroundDrift {
