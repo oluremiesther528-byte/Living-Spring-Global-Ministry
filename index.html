@@ -267,6 +267,25 @@
         <button type="button" onclick="closeAttendanceSlideshow()" aria-label="Close slideshow" class="absolute top-4 right-4 w-11 h-11 rounded-full bg-black/60 text-white text-2xl flex items-center justify-center border border-white/30">×</button>
     </div>
 
+    <style>
+        /* Subtle animated background; all existing brand colors are preserved. */
+        @keyframes livingSpringBackgroundDrift {
+            0% { background-position: 0% 0%, 50% 0%; }
+            50% { background-position: 100% 70%, 50% 100%; }
+            100% { background-position: 0% 0%, 50% 0%; }
+        }
+        body {
+            background-image:
+                radial-gradient(circle at 18% 24%, rgba(255,255,255,0.035) 0 1px, transparent 2px),
+                linear-gradient(145deg, rgba(15,39,66,0.08), rgba(5,17,31,0.08));
+            background-size: 36px 36px, 200% 200%;
+            animation: livingSpringBackgroundDrift 28s ease-in-out infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            body { animation: none; }
+        }
+    </style>
+
     <!-- Hero Section -->
     <section class="relative py-16 sm:py-28 overflow-hidden bg-gradient-to-b from-brand-darkNavy via-brand-navy to-brand-darkNavy">
         <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#1E65B0_1px,transparent_1px)] [background-size:24px_24px]"></div>
