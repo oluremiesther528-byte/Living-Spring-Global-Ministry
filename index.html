@@ -689,9 +689,9 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
                 <div class="min-w-0">
-                    <div class="p-8 rounded-3xl glass-card border border-white/10 space-y-6">
+                    <div class="h-full p-8 rounded-3xl glass-card border border-white/10 space-y-6 flex flex-col">
                         <h3 class="font-serif text-xl font-bold text-white text-left max-w-[34rem]">
                             Online Tithes & Seed Offering
                         </h3>
@@ -734,13 +734,13 @@
                 </div>
 
                 <div class="min-w-0">
-                    <div class="p-6 rounded-3xl glass-card border border-white/10 space-y-5">
+                    <div class="h-full p-6 rounded-3xl glass-card border border-white/10 space-y-5 flex flex-col">
                         <div>
                             <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Community Care</span>
                             <h3 class="font-serif text-xl font-bold text-white mt-1">Food & Clothing Donations</h3>
                             <p class="text-slate-300 text-sm mt-2 leading-relaxed">Donate food, clothing, or both to support individuals and families in our community.</p>
                         </div>
-                        <form id="communityDonationForm" class="space-y-4" onsubmit="submitCommunityDonation(event)">
+                        <form id="communityDonationForm" class="space-y-4 flex flex-col flex-1" onsubmit="submitCommunityDonation(event)">
                             <div>
                                 <label for="communityDonorName" class="block text-xs font-bold text-slate-300 mb-1">Your full name *</label>
                                 <input type="text" id="communityDonorName" name="name" autocomplete="name" required maxlength="120" placeholder="Enter your full name" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
@@ -762,7 +762,7 @@
                                 <label for="communityDonationDetails" class="block text-xs font-bold text-slate-300 mb-1">Items / quantity / sizes</label>
                                 <textarea id="communityDonationDetails" name="details" rows="3" maxlength="1500" placeholder="Describe what you can donate" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue"></textarea>
                             </div>
-                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-700 hover:opacity-95 text-white font-bold text-sm shadow-xl transition-all">Send Donation Enquiry</button>
+                            <button type="submit" class="w-full mt-auto py-3.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-700 hover:opacity-95 text-white font-bold text-sm shadow-xl transition-all">Send Donation Enquiry</button>
                             <p class="text-xs text-slate-400">Opens your email app to send the enquiry to the church.</p>
                         </form>
                     </div>
