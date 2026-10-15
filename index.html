@@ -165,6 +165,7 @@
             <a href="#attendance-gallery" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Sunday Attendance</a>
             <a href="#giving" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Partner & Give</a>
             <a href="#contact" onclick="toggleMobileMenu()" class="block hover:text-amber-400">Contact Us</a>
+            <button type="button" onclick="toggleMobileMenu(); openChurchAdministration()" class="block w-full text-left hover:text-amber-400">Church Administration</button>
             
         </div>
     </nav>
@@ -181,34 +182,6 @@
             </div>
 
             <div class="max-w-5xl mx-auto rounded-3xl glass-card border border-white/10 p-4 sm:p-6">
-                <div id="attendanceAdminPanel" class="hidden rounded-2xl border border-white/10 bg-white/5 p-4 mb-6">
-                    <div class="flex flex-col sm:flex-row sm:items-end gap-3">
-                        <div class="flex-1">
-                            <label for="attendanceAdminEmail" class="block text-xs font-bold text-slate-300 mb-2">Church administrator email</label>
-                            <input type="email" id="attendanceAdminEmail" autocomplete="username" placeholder="admin@yourchurch.org" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
-                        </div>
-                        <div class="flex-1">
-                            <label for="attendanceAdminPassword" class="block text-xs font-bold text-slate-300 mb-2">Password</label>
-                            <input type="password" id="attendanceAdminPassword" autocomplete="current-password" placeholder="Supabase account password" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
-                        </div>
-                        <button type="button" id="attendanceSignInButton" class="px-5 py-3 rounded-xl bg-brand-blue hover:opacity-90 text-white font-bold text-sm">Staff sign in</button>
-                        <button type="button" id="attendanceSignOutButton" class="hidden px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm">Sign out</button>
-                    </div>
-                    <div class="mt-3 flex flex-wrap items-center gap-3">
-                        <button type="button" id="attendanceForgotPasswordButton" class="text-sm font-bold text-amber-300 hover:text-amber-200 underline underline-offset-4">Forgot password?</button>
-                        <span class="text-xs text-slate-400">A reset link will be sent to the email above.</span>
-                    </div>
-                    <div id="attendancePasswordRecoveryPanel" class="hidden mt-4 rounded-xl border border-amber-300/30 bg-black/20 p-4">
-                        <h3 class="text-sm font-bold text-white mb-3">Choose a new administrator password</h3>
-                        <label for="attendanceNewPassword" class="block text-xs font-bold text-slate-300 mb-2">New password (at least 8 characters)</label>
-                        <input type="password" id="attendanceNewPassword" autocomplete="new-password" minlength="8" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue" placeholder="Enter a new password">
-                        <label for="attendanceConfirmNewPassword" class="block text-xs font-bold text-slate-300 mt-3 mb-2">Confirm new password</label>
-                        <input type="password" id="attendanceConfirmNewPassword" autocomplete="new-password" minlength="8" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue" placeholder="Enter the new password again">
-                        <button type="button" id="attendanceUpdatePasswordButton" class="mt-3 px-5 py-3 rounded-xl bg-brand-blue hover:opacity-90 text-white font-bold text-sm">Save new password</button>
-                    </div>
-                    <p class="text-xs text-slate-400 mt-3">Only sign in with a church staff account that has been created by the project administrator. Public visitors cannot upload photos.</p>
-                </div>
-
                 <div id="attendanceUploadControls" class="hidden flex-col sm:flex-row sm:items-end gap-4 mb-6">
                     <div class="flex-1">
                         <label for="attendanceDate" class="block text-xs font-bold text-slate-300 mb-2">Sunday date</label>
@@ -249,6 +222,45 @@
         </div>
     </section>
 
+
+    <!-- Church Administration: opened only from the hamburger menu -->
+    <section id="churchAdministrationSection" class="hidden py-8 bg-brand-darkNavy border-b border-white/10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-2xl glass-card border border-white/10 p-4 sm:p-6">
+                <div class="flex items-center justify-between gap-3 mb-4">
+                    <h2 class="font-serif text-xl font-bold text-white">Church Administration</h2>
+                    <button type="button" onclick="closeChurchAdministration()" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm font-bold">Close</button>
+                </div>
+                <div id="attendanceAdminPanel" class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div class="flex flex-col sm:flex-row sm:items-end gap-3">
+                        <div class="flex-1">
+                            <label for="attendanceAdminEmail" class="block text-xs font-bold text-slate-300 mb-2">Church administrator email</label>
+                            <input type="email" id="attendanceAdminEmail" autocomplete="username" placeholder="admin@yourchurch.org" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
+                        </div>
+                        <div class="flex-1">
+                            <label for="attendanceAdminPassword" class="block text-xs font-bold text-slate-300 mb-2">Password</label>
+                            <input type="password" id="attendanceAdminPassword" autocomplete="current-password" placeholder="Supabase account password" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue">
+                        </div>
+                        <button type="button" id="attendanceSignInButton" class="px-5 py-3 rounded-xl bg-brand-blue hover:opacity-90 text-white font-bold text-sm">Staff sign in</button>
+                        <button type="button" id="attendanceSignOutButton" class="hidden px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm">Sign out</button>
+                    </div>
+                    <div class="mt-3 flex flex-wrap items-center gap-3">
+                        <button type="button" id="attendanceForgotPasswordButton" class="text-sm font-bold text-amber-300 hover:text-amber-200 underline underline-offset-4">Forgot password?</button>
+                        <span class="text-xs text-slate-400">A reset link will be sent to the email above.</span>
+                    </div>
+                    <div id="attendancePasswordRecoveryPanel" class="hidden mt-4 rounded-xl border border-amber-300/30 bg-black/20 p-4">
+                        <h3 class="text-sm font-bold text-white mb-3">Choose a new administrator password</h3>
+                        <label for="attendanceNewPassword" class="block text-xs font-bold text-slate-300 mb-2">New password (at least 8 characters)</label>
+                        <input type="password" id="attendanceNewPassword" autocomplete="new-password" minlength="8" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue" placeholder="Enter a new password">
+                        <label for="attendanceConfirmNewPassword" class="block text-xs font-bold text-slate-300 mt-3 mb-2">Confirm new password</label>
+                        <input type="password" id="attendanceConfirmNewPassword" autocomplete="new-password" minlength="8" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-brand-blue" placeholder="Enter the new password again">
+                        <button type="button" id="attendanceUpdatePasswordButton" class="mt-3 px-5 py-3 rounded-xl bg-brand-blue hover:opacity-90 text-white font-bold text-sm">Save new password</button>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-3">Only sign in with an authorized church staff account. Public visitors cannot upload photos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Photo-only slideshow overlay -->
     <div id="attendanceSlideshowOverlay" class="hidden fixed inset-0 z-[100] bg-black items-center justify-center" role="dialog" aria-label="Photo slideshow">
@@ -941,10 +953,21 @@
             if (el) el.textContent = message;
         }
 
+        function openChurchAdministration() {
+            const section = document.getElementById('churchAdministrationSection');
+            if (section) {
+                section.classList.remove('hidden');
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function closeChurchAdministration() {
+            const section = document.getElementById('churchAdministrationSection');
+            if (section) section.classList.add('hidden');
+        }
+
         function setAttendanceAuthUI(session) {
             attendanceSession = session || null;
-            const adminPanel = document.getElementById('attendanceAdminPanel');
-            if (adminPanel) adminPanel.classList.add('hidden');
             const pastorControls = document.getElementById('pastorPhotoAdminControls');
             const isPastorAdmin = !!(attendanceSession && attendanceSession.user && attendanceSession.user.id === PASTOR_ADMIN_UID);
             if (pastorControls) pastorControls.classList.toggle('hidden', !isPastorAdmin);
