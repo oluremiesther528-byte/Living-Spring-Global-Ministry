@@ -193,6 +193,10 @@
                         <span>📷 Upload Sunday Photos</span>
                         <input id="attendancePhotoInput" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple class="hidden" onchange="handleAttendancePhotoUpload(event)">
                     </label>
+                    <label id="pastorPhotoGalleryControl" class="hidden inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-crimson hover:opacity-95 text-white font-bold text-sm cursor-pointer shadow-lg">
+                        <span>🖼️ Change Pastor Isaac’s Photo</span>
+                        <input type="file" id="pastorPhotoInput" accept="image/jpeg,image/png,image/webp" class="hidden" onchange="handlePastorPhotoUpload(event)">
+                    </label>
                 </div>
 
                 <p id="attendanceUploadStatus" aria-live="polite" class="text-xs text-slate-300 mb-5">Connecting to the online Sunday attendance gallery…</p>
@@ -589,12 +593,7 @@
                             </div>
                         </div>
                         <div id="pastorPhotoAdminControls" class="hidden w-full">
-                            <label for="pastorPhotoInput" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-crimson hover:opacity-95 text-white text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-lg transition-all active:scale-95">
-                                <span class="text-base">📷</span>
-                                <span>Upload Pastor Isaac's Photo</span>
-                                <input type="file" id="pastorPhotoInput" accept="image/jpeg,image/png,image/webp" class="hidden" onchange="handlePastorPhotoUpload(event)">
-                            </label>
-                            <p class="text-xs text-slate-400 mt-2">Administrator only. The new photo is saved online for all visitors.</p>
+                            <p class="text-xs text-slate-400 mt-2">Photo management is available in the Sunday Attendance upload area after staff sign-in.</p>
                         </div>
 
                         <div>
@@ -977,8 +976,10 @@
             const file = event.target.files && event.target.files[0];
             event.target.value = '';
             if (!file) return;
-            if (!attendanceSession || !attendanceSession.user || attendanceSession.user.id !== PASTOR_ADMIN_UID) {
-                attendanceStatus('Only the designated church administrator can upload Pastor Isaac’s photo.');
+            if (!attendanceSession || !attendanceSession.user ||
+                (attendanceSession.user.id !== PASTOR_ADMIN_UID &&
+                 attendanceSession.user.email !== 'livingspringglobalministries@gmail.com')) {
+                attendanceStatus('Only the authorized church administrator can upload Pastor Isaac’s photo.');
                 return;
             }
             const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
@@ -1084,18 +1085,23 @@
 
         function setAttendanceAuthUI(session) {
             attendanceSession = session || null;
+            const isSignedIn = !!(attendanceSession && attendanceSession.user);
+            const isPastorAdmin = !!(attendanceSession && attendanceSession.user &&
+                (attendanceSession.user.id === PASTOR_ADMIN_UID ||
+                 attendanceSession.user.email === 'livingspringglobalministries@gmail.com'));
             const pastorControls = document.getElementById('pastorPhotoAdminControls');
-            const isPastorAdmin = !!(attendanceSession && attendanceSession.user && attendanceSession.user.id === PASTOR_ADMIN_UID);
+            const galleryPastorControl = document.getElementById('pastorPhotoGalleryControl');
             if (pastorControls) pastorControls.classList.toggle('hidden', !isPastorAdmin);
+            if (galleryPastorControl) galleryPastorControl.classList.toggle('hidden', !isPastorAdmin);
             const controls = document.getElementById('attendanceUploadControls');
             const signIn = document.getElementById('attendanceSignInButton');
             const signOut = document.getElementById('attendanceSignOutButton');
             if (controls) {
-                controls.classList.toggle('hidden', !attendanceSession);
-                controls.classList.toggle('flex', !!attendanceSession);
+                controls.classList.toggle('hidden', !isSignedIn);
+                controls.classList.toggle('flex', isSignedIn);
             }
-            if (signIn) signIn.classList.toggle('hidden', !!attendanceSession);
-            if (signOut) signOut.classList.toggle('hidden', !attendanceSession);
+            if (signIn) signIn.classList.toggle('hidden', isSignedIn);
+            if (signOut) signOut.classList.toggle('hidden', !isSignedIn);
         }
 
         async function attendanceSignIn() {
@@ -1125,7 +1131,15 @@
             clearAttendanceLoginStatus();
             setAttendanceAuthUI(data.session);
             document.getElementById('attendanceAdminPassword').value = '';
-            attendanceStatus('Signed in. You can now upload Sunday attendance photos.');
+            attendanceStatus('Signed in. You can upload Sunday attendance photos and change Pastor Isaac’s photo below.');
+            const gallery = document.getElementById('attendance-gallery');
+            if (gallery) {
+                gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => {
+                    const uploadControls = document.getElementById('attendanceUploadControls');
+                    if (uploadControls) uploadControls.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 500);
+            }
         }
 
         async function attendanceSignOut() {
